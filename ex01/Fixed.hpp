@@ -1,0 +1,15 @@
+#ifndef FIXED_HPP
+#define FIXED_HPP
+
+#include<iostream>
+
+class Fixed
+{
+private:
+	int value;
+public:
+	Fixed();
+	~Fixed();
+};
+
+#endif
