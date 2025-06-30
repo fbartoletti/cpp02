@@ -13,6 +13,13 @@ static Fixed calculateArea(Point const& p1, Point const& p2, Point const& p3) {
 }
 
 // ✅ Main bsp function
+// Calculate the areas of triangles PAB, PBC, PAC (where P is the point to test)
+// If the sum of the areas of the sub-triangles is equal to the area of ​​the original triangle, the point is internal
+
+// Cases handled correctly:
+// Internal point: sum of areas = triangle area
+// External point: sum of areas > triangle area
+// Point on edge/vertex: one of the areas = 0 → return false
 bool bsp(Point const a, Point const b, Point const c, Point const point) {
 	Fixed areaABC = calculateArea(a, b, c);
 	Fixed areaPAB = calculateArea(point, a, b);
