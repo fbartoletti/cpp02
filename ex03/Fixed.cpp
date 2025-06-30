@@ -2,31 +2,31 @@
 
 const int Fixed::fractionalBits = 8;
 
+// ✅ std::cout << "Default constructor called" << std::endl;
 Fixed::Fixed() : value(0) {
-	// std::cout << "Default constructor called" << std::endl;
 }
 
+// ✅ std::cout << "Int constructor called" << std::endl;
 Fixed::Fixed(const int n) {
-	// std::cout << "Int constructor called" << std::endl;
 	value = n << fractionalBits;
 }
 
+// ✅ std::cout << "Float constructor called" << std::endl;
 Fixed::Fixed(const float n) {
-	// std::cout << "Float constructor called" << std::endl;
 	value = roundf(n * (1 << fractionalBits));
 }
 
+// ✅ std::cout << "Copy constructor called" << std::endl;
 Fixed::Fixed(const Fixed& src) {
-	// std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
 
+// ✅ std::cout << "Destructor called" << std::endl;
 Fixed::~Fixed() {
-	// std::cout << "Destructor called" << std::endl;
 }
 
+// ✅ std::cout << "Copy assignment operator called" << std::endl;
 Fixed& Fixed::operator=(const Fixed& rhs) {
-	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &rhs) {
 		this->value = rhs.getRawBits();
 	}

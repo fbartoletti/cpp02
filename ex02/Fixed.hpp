@@ -16,19 +16,19 @@ public:
 	~Fixed();
 
 	Fixed& operator=(const Fixed& rhs);
-	// Comparison operators
+	// ✅ Comparison operators
 	bool operator>(const Fixed& rhs) const;
 	bool operator<(const Fixed& rhs) const;
 	bool operator>=(const Fixed& rhs) const;
 	bool operator<=(const Fixed& rhs) const;
 	bool operator==(const Fixed& rhs) const;
 	bool operator!=(const Fixed& rhs) const;
-	// Arithmetic operators
+	// ✅ Arithmetic operators
 	Fixed operator+(const Fixed& rhs) const;
 	Fixed operator-(const Fixed& rhs) const;
 	Fixed operator*(const Fixed& rhs) const;
 	Fixed operator/(const Fixed& rhs) const;
-	// Increment/Decrement Operators
+	// ✅ Increment/Decrement Operators
 	Fixed& operator++();
 	Fixed operator++(int);
 	Fixed& operator--();

@@ -9,10 +9,12 @@ private:
 	int value;
 	static const int fractionalBits;
 public:
+	// ✅ Orthodox Canonical Form
 	Fixed();
 	Fixed(const Fixed& rhs);
 	Fixed& operator=(const Fixed& rhs);
 	~Fixed();
+
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
 };

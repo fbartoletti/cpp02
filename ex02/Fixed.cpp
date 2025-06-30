@@ -2,35 +2,35 @@
 
 const int Fixed::fractionalBits = 8;
 
-// Costructor
+// ✅ Costructor
 Fixed::Fixed() : value(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-// Int costructor
+// ✅ Int costructor
 Fixed::Fixed(const int n) {
 	std::cout << "Int constructor called" << std::endl;
 	value = n << fractionalBits;
 }
 
-// Float costructor
+// ✅ Float costructor
 Fixed::Fixed(const float n) {
 	std::cout << "Float constructor called" << std::endl;
 	value = roundf(n * (1 << fractionalBits));
 }
 
-// Copy costructor
+// ✅ Copy costructor
 Fixed::Fixed(const Fixed& src) {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
 
-// Distructor
+// ✅ Distructor
 Fixed::~Fixed() {
 	std::cout << "Destructor called" << std::endl;
 }
 
-// Copy assignment operator
+// ✅ Copy assignment operator
 Fixed& Fixed::operator=(const Fixed& rhs) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &rhs) {
@@ -39,7 +39,7 @@ Fixed& Fixed::operator=(const Fixed& rhs) {
 	return *this;
 }
 
-// Comparison operators
+// ✅ Comparison operators
 bool Fixed::operator>(const Fixed& rhs) const {
 	return this->value > rhs.value;
 }
@@ -64,7 +64,7 @@ bool Fixed::operator!=(const Fixed& rhs) const {
 	return this->value != rhs.value;
 }
 
-// Arithmetic operators
+// ✅ Arithmetic operators
 Fixed Fixed::operator+(const Fixed& rhs) const {
 	Fixed result;
 	result.setRawBits(this->value + rhs.value);
@@ -95,7 +95,7 @@ Fixed Fixed::operator/(const Fixed& rhs) const {
 	return result;
 }
 
-// Increment/Decrement Operators
+// ✅ Increment/Decrement Operators
 Fixed& Fixed::operator++() {
 	++this->value;
 	return *this;
@@ -118,7 +118,7 @@ Fixed Fixed::operator--(int) {
 	return temp;
 }
 
-// Methods to manipulate the value
+// ✅ Methods to manipulate the value
 int Fixed::getRawBits(void) const {
 	return this->value;
 }
@@ -127,17 +127,17 @@ void Fixed::setRawBits(int const raw) {
 	this->value = raw;
 }
 
-// Convert to float
+// ✅ Convert to float
 float Fixed::toFloat(void) const {
 	return (float)value / (1 << fractionalBits);
 }
 
-// Convert to int
+// ✅ Convert to int
 int Fixed::toInt(void) const {
 	return value >> fractionalBits;
 }
 
-// Static functions for min/max
+// ✅ Static functions for min/max
 Fixed& Fixed::min(Fixed& a, Fixed& b) {
 	return (a < b) ? a : b;
 }
@@ -154,7 +154,7 @@ const Fixed& Fixed::max(const Fixed& a, const Fixed& b) {
 	return (a > b) ? a : b;
 }
 
-// Insertion operator overload
+// ✅ Insertion operator overload
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
 	os << fixed.toFloat();
 	return os;
